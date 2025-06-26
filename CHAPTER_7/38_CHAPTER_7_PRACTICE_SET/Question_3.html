@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>CHAPTER 7 - PS - Q3</title>
+	</head>
+	<body>
+		<!-- 3. Create an element with 3 children. Now change the color of the first and last element to green. -->
+		<div id="parent">
+			<p>Child 1</p>
+			<p>Child 2</p>
+			<p>Child 3</p>
+		</div>
+
+		<script>
+			const parent = document.getElementById("parent");
+			parent.firstElementChild.style.color = "green";
+			parent.lastElementChild.style.color = "green";
+		</script>
+	</body>
+</html>
