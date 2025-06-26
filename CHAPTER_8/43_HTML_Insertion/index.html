@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>HTML INSERTION METHODS</title>
+	</head>
+	<body>
+		<div id="target">Original Content</div>
+
+		<button id="append">append()</button>
+		<button id="prepend">prepend()</button>
+		<button id="before">before()</button>
+		<button id="after">after()</button>
+		<button id="replace">replaceWith()</button>
+
+		<script>
+			const target = document.getElementById("target");
+
+			document.getElementById("append").addEventListener("click", () => {
+				const box = document.createElement("div");
+				box.innerHTML = "<h3>Hello from append</h3>";
+				box.style.background = "lightgreen";
+				target.append(box);
+			});
+
+			document.getElementById("prepend").addEventListener("click", () => {
+				const box = document.createElement("div");
+				box.innerHTML = "<h3>Hello from prepend</h3>";
+				box.style.background = "lightblue";
+				target.prepend(box);
+			});
+
+			document.getElementById("before").addEventListener("click", () => {
+				const box = document.createElement("div");
+				box.innerHTML = "<h3>Hello from before</h3>";
+				box.style.background = "orange";
+				target.before(box);
+			});
+
+			document.getElementById("after").addEventListener("click", () => {
+				const box = document.createElement("div");
+				box.innerHTML = "<h3>Hello from after</h3>";
+				box.style.background = "violet";
+				target.after(box);
+			});
+
+			document.getElementById("replace").addEventListener("click", () => {
+				const box = document.createElement("div");
+				box.innerHTML = "<h3>Replaced!</h3>";
+				box.style.background = "crimson";
+				target.replaceWith(box);
+			});
+		</script>
+	</body>
+</html>

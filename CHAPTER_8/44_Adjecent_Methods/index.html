@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Adjecent</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<style>
+			* {
+				font-family: "JetBrains Mono";
+			}
+
+			#target {
+				border: 2px solid black;
+				padding: 10px;
+				margin: 30px;
+				background-color: #f5f5f5;
+			}
+			.inserted {
+				color: white;
+				background: #007bff;
+				padding: 3px 5px;
+				margin: 2px 0;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>insertAdjacentHTML - All Positions</h2>
+
+		<div id="target">🎯 <b>Target Div</b> 🎯</div>
+
+		<script>
+			const box = document.getElementById("target");
+
+			box.insertAdjacentHTML(
+				"beforebegin",
+				"<div class='inserted'>beforebegin</div>"
+			);
+
+			box.insertAdjacentHTML(
+				"afterbegin",
+				"<div class='inserted'>afterbegin</div>"
+			);
+
+			box.insertAdjacentHTML(
+				"beforeend",
+				"<div class='inserted'>beforeend</div>"
+			);
+
+			box.insertAdjacentHTML(
+				"afterend",
+				"<div class='inserted'>afterend</div>"
+			);
+		</script>
+	</body>
+</html>
