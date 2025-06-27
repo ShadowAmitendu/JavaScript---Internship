@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Bookmark Manager</title>
+	</head>
+	<body>
+		<input type="text" id="title" placeholder="Site Name" />
+		<input type="text" id="url" placeholder="https://example.com" />
+		<button onclick="addBookmark()">Add Bookmark</button>
+
+		<div id="bookmarks"></div>
+
+		<script>
+			function addBookmark() {
+				let name = document.getElementById("title").value;
+				let url = document.getElementById("url").value;
+				let container = document.getElementById("bookmarks");
+
+				let link = document.createElement("a");
+				link.href = url;
+				link.textContent = name;
+				link.target = "_blank";
+
+				container.appendChild(link);
+				container.appendChild(document.createElement("br"));
+			}
+		</script>
+	</body>
+</html>

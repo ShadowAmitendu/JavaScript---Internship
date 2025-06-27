@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Fetch Every 5 Seconds</title>
+	</head>
+	<body>
+		<h2>API Data (fetching every 5 sec)</h2>
+		<pre id="output">Waiting for data...</pre>
+
+		<script>
+			function fetchData() {
+				fetch("https://api.chucknorris.io/jokes/random")
+					.then(res => res.json())
+					.then(data => {
+						document.getElementById("output").textContent =
+							data.value;
+					})
+					.catch(err => console.error("Error:", err));
+			}
+
+			fetchData();
+			setInterval(fetchData, 5000);
+		</script>
+	</body>
+</html>

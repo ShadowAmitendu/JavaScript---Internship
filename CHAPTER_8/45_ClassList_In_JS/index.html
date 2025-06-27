@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Class List and Class Name</title>
+		<style>
+			* {
+				font-family: "JetBrains Mono";
+			}
+			.box {
+				width: 150px;
+				height: 150px;
+				background-color: lightblue;
+				border: 2px solid black;
+				margin: 20px;
+				text-align: center;
+				line-height: 150px;
+				font-weight: bold;
+			}
+			.rounded {
+				border-radius: 50%;
+			}
+			.shadow {
+				box-shadow: 5px 5px 10px gray;
+			}
+			.highlight {
+				background-color: yellow;
+				color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>className vs classList</h2>
+
+		<div id="box1" class="box">Box 1</div>
+		<button onclick="changeWithClassName()">Use className</button>
+
+		<div id="box2" class="box">Box 2</div>
+		<button onclick="changeWithClassList()">Use classList</button>
+
+		<script>
+			function changeWithClassName() {
+				let box = document.getElementById("box1");
+				box.className = "box highlight";
+			}
+
+			function changeWithClassList() {
+				let box = document.getElementById("box2");
+				box.classList.add("shadow");
+				box.classList.toggle("rounded");
+			}
+		</script>
+	</body>
+</html>
