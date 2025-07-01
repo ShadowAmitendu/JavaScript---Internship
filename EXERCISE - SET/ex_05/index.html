@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hackermon</title>
+		<style>
+			body {
+				background-color: black;
+				color: #00ff00;
+				font-family: "JetBrains Mono", Courier, monospace;
+				padding: 20px;
+			}
+			.line {
+				margin: 5px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>Parag's Android Phone Terminal</h2>
+		<div id="output"></div>
+
+		<script>
+			const output = document.getElementById("output");
+
+			const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+			async function hackermon() {
+				const messages = [
+					"Initialising Hack program...",
+					"Hacking into Parag...",
+					"Username found: paragchatterjee...",
+					"Connecting to facebook...",
+					"Fetching data from facebook...",
+					"Scanning personal photos...",
+					"Bypassing 2FA security...",
+					"Downloading friend list...",
+					"Connecting to instagram...",
+					"Fetching data from instagram...",
+					"Analyzing message history...",
+					"Injecting tracking script...",
+					"Compiling report...",
+					"Mission Complete!",
+				];
+
+				for (let msg of messages) {
+					await delay(1500); // Wait 1.5 seconds
+					let line = document.createElement("div");
+					line.className = "line";
+					line.textContent = msg;
+					output.appendChild(line);
+				}
+			}
+
+			hackermon();
+		</script>
+	</body>
+</html>

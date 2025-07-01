@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Question 4</title>
+	</head>
+	<body>
+		<!-- Write a program using Promise.all() inside an async/await to await 3 promises. Compare its results with the case where we await these promises one by one. -->
+		<script>
+			let p1 = async () => {
+				return new Promise(resolve => {
+					setTimeout(() => {
+						resolve(10);
+					}, 2000);
+				});
+			};
+
+			let p2 = async () => {
+				return new Promise(resolve => {
+					setTimeout(() => {
+						resolve(20);
+					}, 1000);
+				});
+			};
+
+			let p3 = async () => {
+				return new Promise(resolve => {
+					setTimeout(() => {
+						resolve(30);
+					}, 3000);
+				});
+			};
+
+			const run = async () => {
+				console.time("run");
+
+				let a1 = p1();
+				let a2 = p2();
+				let a3 = p3();
+				let results = await Promise.all([a1, a2, a3]);
+
+				console.log(results);
+				console.timeEnd("run");
+			};
+			run();
+		</script>
+	</body>
+</html>
