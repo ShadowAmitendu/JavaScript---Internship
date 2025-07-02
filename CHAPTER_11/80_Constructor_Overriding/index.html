@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Constructor Overriding</title>
+	</head>
+	<body>
+		<script>
+			class Employee {
+				constructor(name) {
+					this.name = name;
+					console.log(`${this.name} is an employee.`);
+				}
+			}
+
+			class Manager extends Employee {
+				constructor(name, department) {
+					super(name); // Must call parent constructor or else error will be thrown
+					this.department = department;
+					console.log(
+						`${this.name} is a manager of ${this.department}.`
+					);
+				}
+			}
+
+			let m1 = new Manager("Parag", "Sales");
+		</script>
+	</body>
+</html>

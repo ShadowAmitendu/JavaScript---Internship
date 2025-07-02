@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta charset="UTF-8" />
+		<title>Todo List</title>
+		<style>
+			body {
+				font-family: "Product Sans", sans-serif;
+				margin: 200px;
+				background: #f4f4f4;
+			}
+			h2 {
+				color: #333;
+			}
+			#todoContainer {
+				background: white;
+				padding: 20px;
+				border-radius: 8px;
+				max-width: 100vw;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			}
+			input,
+			button {
+				padding: 10px;
+				margin-top: 10px;
+				font-size: 16px;
+			}
+			#todoInput {
+				width: 85%;
+			}
+			button {
+				cursor: pointer;
+				width: 10%;
+			}
+			ul {
+				list-style-type: none;
+				padding: 0;
+			}
+			li {
+				margin: 10px 0;
+				padding: 8px;
+				background: #e0f7fa;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				border-radius: 5px;
+			}
+			.deleteBtn {
+				background: red;
+				color: white;
+				border: none;
+				padding: 6px 10px;
+				border-radius: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="todoContainer">
+			<h2>Todo List - Using Local Storage</h2>
+			<input type="text" id="todoInput" placeholder="Enter your todo" />
+			<button onclick="addTodo()">Add</button>
+			<ul id="todoList"></ul>
+		</div>
+
+		<script>
+			let todos = [];
+
+			window.onload = () => {
+				const storedTodos = localStorage.getItem("todos");
+				if (storedTodos) {
+					todos = JSON.parse(storedTodos);
+					renderTodos();
+				}
+			};
+
+			function addTodo() {
+				const input = document.getElementById("todoInput");
+				const todoText = input.value.trim();
+				if (todoText === "") return;
+
+				todos.push(todoText);
+				input.value = "";
+				saveAndRender();
+			}
+
+			function deleteTodo(index) {
+				todos.splice(index, 1);
+				saveAndRender();
+			}
+
+			function saveAndRender() {
+				localStorage.setItem("todos", JSON.stringify(todos));
+				renderTodos();
+			}
+
+			function renderTodos() {
+				const list = document.getElementById("todoList");
+				list.innerHTML = "";
+				todos.forEach((todo, index) => {
+					const li = document.createElement("li");
+					li.innerHTML = `${todo}<button class="deleteBtn" onclick="deleteTodo(${index})">Delete</button>`;
+					list.appendChild(li);
+				});
+			}
+		</script>
+	</body>
+</html>

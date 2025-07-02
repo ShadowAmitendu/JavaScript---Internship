@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Constructors</title>
+	</head>
+	<body>
+		<script>
+			class Person {
+				constructor(name, age) {
+					this.name = name;
+					this.age = age;
+				}
+
+				greet() {
+					console.log(`Hi, I'm ${this.name}`);
+				}
+			}
+
+			let p2 = new Person("Parag", 20);
+			p2.greet();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>LocalStorage</title>
+	</head>
+	<body>
+		<script>
+			// Set data
+			localStorage.setItem("username", "parag");
+
+			// Get data
+			let user = localStorage.getItem("username");
+			console.log(user);
+
+			// Remove a single item
+			localStorage.removeItem("username");
+
+			// Clear all items
+			localStorage.clear();
+
+			// Check length
+			console.log(localStorage.length);
+
+			// Set and get object (convert to string!)
+			let userData = { name: "Alice", age: 25 };
+			localStorage.setItem("user", JSON.stringify(userData));
+
+			let storedUser = JSON.parse(localStorage.getItem("user"));
+			console.log(storedUser.name);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Question 3</title>
+	</head>
+	<body>
+		<script>
+			// Create a class Student from a class Human. Override a method & see changes.
+			class Human {
+				speak() {
+					console.log("Human is speaking...");
+				}
+			}
+
+			class Student extends Human {
+				speak() {
+					console.log("Student is asking a question...");
+				}
+			}
+
+			let s1 = new Student();
+			s1.speak();
+		</script>
+	</body>
+</html>

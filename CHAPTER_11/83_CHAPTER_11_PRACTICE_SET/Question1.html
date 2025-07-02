@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Question 1</title>
+	</head>
+	<body>
+		<script>
+			// Create a JavaScript class to create a complex number. Create a constructor to set the real and the complex part.
+			class Complex {
+				constructor(real, imaginary) {
+					this.real = real;
+					this.imaginary = imaginary;
+				}
+
+				display() {
+					console.log(`${this.real} + ${this.imaginary}i`);
+				}
+			}
+
+			let c1 = new Complex(2, 3);
+			c1.display();
+		</script>
+	</body>
+</html>

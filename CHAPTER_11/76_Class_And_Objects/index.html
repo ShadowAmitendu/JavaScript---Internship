@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Classes and Objects</title>
+	</head>
+	<body>
+		<script>
+			class RailwayForm {
+				submit() {
+					console.log(
+						this.name +
+							": Your form is submitted for train number: " +
+							this.trainno
+					);
+				}
+				cancel() {
+					console.log(
+						this.name +
+							": This form is cancelled for train number: " +
+							this.trainno
+					);
+				}
+				fill(givenname, trainno) {
+					this.name = givenname;
+					this.trainno = trainno;
+				}
+			}
+
+			let harryForm = new RailwayForm();
+			harryForm.fill("Parag", 145316);
+
+			let rohanForm1 = new RailwayForm();
+			let rohanForm2 = new RailwayForm();
+			rohanForm1.fill("Amitendu", 222420);
+			rohanForm2.fill("Anik", 2229211);
+
+			harryForm.submit();
+			rohanForm1.submit();
+			rohanForm2.submit();
+			rohanForm1.cancel();
+		</script>
+	</body>
+</html>

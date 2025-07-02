@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Session Storage</title>
+	</head>
+	<body>
+		<script>
+			// Set data
+			sessionStorage.setItem("user", "amitendu");
+
+			// Get data
+			let user = sessionStorage.getItem("user");
+			console.log(user);
+
+			// Remove data
+			sessionStorage.removeItem("user");
+
+			// Clear all data
+			sessionStorage.clear();
+
+			// Set multiple items and get key by index
+			sessionStorage.setItem("name", "John");
+			sessionStorage.setItem("age", "30");
+
+			console.log(sessionStorage.key(0));
+			console.log(sessionStorage.length);
+
+			window.addEventListener("storage", function (event) {
+				console.log("Key changed:", event.key);
+				console.log("Old value:", event.oldValue);
+				console.log("New value:", event.newValue);
+				console.log("URL:", event.url);
+				console.log("Storage area:", event.storageArea);
+			});
+		</script>
+	</body>
+</html>

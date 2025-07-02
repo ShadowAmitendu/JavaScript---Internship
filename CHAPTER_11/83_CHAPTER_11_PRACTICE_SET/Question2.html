@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Question 2</title>
+	</head>
+	<body>
+		<script>
+			// Write a method to add two complex numbers in the above class from Q1.
+			class Complex {
+				constructor(real, imaginary) {
+					this.real = real;
+					this.imaginary = imaginary;
+				}
+
+				add(other) {
+					let resultReal = this.real + other.real;
+					let resultImag = this.imaginary + other.imaginary;
+					return new Complex(resultReal, resultImag);
+				}
+
+				display() {
+					console.log(`${this.real} + ${this.imaginary}i`);
+				}
+			}
+
+			let c1 = new Complex(4, 5);
+			let c2 = new Complex(1, 2);
+			let result = c1.add(c2);
+			result.display();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Getters and Setters</title>
+	</head>
+	<body>
+		<script>
+			class Person {
+				constructor(name) {
+					this._name = name;
+				}
+
+				// Getter
+				get name() {
+					return this._name;
+				}
+
+				// Setter
+				set name(newName) {
+					this._name = newName;
+				}
+			}
+
+			let p = new Person("Amit");
+
+			console.log(p.name);
+
+			p.name = "Rahul";
+
+			console.log(p.name);
+
+			console.log(p instanceof Person);
+		</script>
+	</body>
+</html>

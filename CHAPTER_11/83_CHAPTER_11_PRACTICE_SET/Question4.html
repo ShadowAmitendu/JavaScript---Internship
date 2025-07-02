@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Question 4</title>
+	</head>
+	<body>
+		<script>
+			// See if Student is an instance of Human using instanceof keyword.
+			class Human {
+				speak() {
+					console.log("Human is speaking...");
+				}
+			}
+
+			class Student extends Human {
+				speak() {
+					console.log("Student is asking a question...");
+				}
+			}
+
+			let s2 = new Student();
+			console.log(s2 instanceof Student);
+			console.log(s2 instanceof Human);
+		</script>
+	</body>
+</html>

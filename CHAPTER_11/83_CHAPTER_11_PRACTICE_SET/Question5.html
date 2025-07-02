@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Question 5</title>
+	</head>
+	<body>
+		<script>
+			// Use getters & setters to set and get the real and imaginary parts of the complex number.
+			class ComplexNumber {
+				constructor(real, imaginary) {
+					this._real = real;
+					this._imaginary = imaginary;
+				}
+
+				get real() {
+					return this._real;
+				}
+
+				set real(value) {
+					this._real = value;
+				}
+
+				get imaginary() {
+					return this._imaginary;
+				}
+
+				set imaginary(value) {
+					this._imaginary = value;
+				}
+
+				display() {
+					console.log(`${this.real} + ${this.imaginary}i`);
+				}
+			}
+
+			let num = new ComplexNumber(3, 4);
+			num.display();
+			num.real = 6;
+			num.imaginary = 7;
+			num.display();
+		</script>
+	</body>
+</html>

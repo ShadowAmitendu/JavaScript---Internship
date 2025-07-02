@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta charset="UTF-8" />
+		<title>Password Generator</title>
+		<style>
+			body {
+				font-family: Degular, sans-serif;
+				padding: 30px;
+				background-color: #f9f9f9;
+			}
+
+			h2 {
+				color: #333;
+			}
+
+			input,
+			button {
+				font-size: 16px;
+				padding: 8px;
+				margin: 10px 0;
+			}
+
+			#output {
+				font-weight: bold;
+				margin-top: 15px;
+				color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>Password Generator (with Class)</h2>
+
+		<label>Password Length:</label><br />
+		<input type="number" id="length" placeholder="10" min="4" /><br />
+
+		<button onclick="generatePassword()">Generate Password</button>
+
+		<div id="output"></div>
+
+		<script>
+			// Password class with at least 1 lowercase, 1 uppercase, 1 special
+			class Password {
+				constructor(length) {
+					this.length = length;
+					this.lowercase = "abcdefghijklmnopqrstuvwxyz";
+					this.uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+					this.special = "!@#$%^&*()_+[]{}|;:,.<>?";
+					this.allChars =
+						this.lowercase + this.uppercase + this.special;
+				}
+
+				generate() {
+					if (this.length < 4) return "Length must be at least 4";
+
+					let pwd = "";
+
+					pwd +=
+						this.lowercase[
+							Math.floor(Math.random() * this.lowercase.length)
+						];
+					pwd +=
+						this.uppercase[
+							Math.floor(Math.random() * this.uppercase.length)
+						];
+					pwd +=
+						this.special[
+							Math.floor(Math.random() * this.special.length)
+						];
+
+					for (let i = 3; i < this.length; i++) {
+						pwd +=
+							this.allChars[
+								Math.floor(Math.random() * this.allChars.length)
+							];
+					}
+
+					return pwd
+						.split("")
+						.sort(() => 0.5 - Math.random())
+						.join("");
+				}
+			}
+
+			function generatePassword() {
+				const len = parseInt(document.getElementById("length").value);
+				const passObj = new Password(len);
+				const password = passObj.generate();
+
+				document.getElementById("output").textContent =
+					"Generated Password: " + password;
+			}
+		</script>
+	</body>
+</html>

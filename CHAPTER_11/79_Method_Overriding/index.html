@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Method Overriding</title>
+	</head>
+	<body>
+		<script>
+			// Parent class
+			class Employee {
+				constructor(name) {
+					this.name = name;
+				}
+
+				leave(days) {
+					console.log(
+						`${this.name} has requested ${days} day(s) of leave.`
+					);
+				}
+			}
+
+			// Child class
+			class Manager extends Employee {
+				leave(days) {
+					super.leave(days);
+					console.log(
+						`${this.name} is a manager. Leave request will be auto-approved.`
+					);
+				}
+			}
+
+			// Create instances
+			let emp1 = new Employee("Anik");
+			let mgr1 = new Manager("Shivam");
+
+			// Call leave method
+			emp1.leave(2);
+			mgr1.leave(3);
+		</script>
+	</body>
+</html>
