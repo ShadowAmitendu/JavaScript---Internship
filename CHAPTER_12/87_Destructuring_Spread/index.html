@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Desructring Spread</title>
+	</head>
+	<body>
+		<script>
+			// On Arrays
+			const numbers = [1, 2, 3];
+			const [a, b, c] = numbers;
+
+			console.log(a);
+			console.log(b);
+			console.log(c);
+			// Spread on Arrays
+			const arr1 = [1, 2, 3];
+			const arr2 = [...arr1, 4, 5];
+			console.log(arr2);
+
+			// On Objects
+			const person = { name: "Alice", age: 25 };
+			const { name, age } = person;
+
+			console.log(name);
+			console.log(age);
+
+			// Spread on Objects
+			const obj1 = { a: 1, b: 2 };
+			const obj2 = { ...obj1, c: 3 };
+			console.log(obj2);
+		</script>
+	</body>
+</html>
