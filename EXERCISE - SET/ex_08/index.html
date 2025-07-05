@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Alarm Clock with Audio</title>
+		<style>
+			body {
+				font-family: "Product Sans", sans-serif;
+				background: #111;
+				color: #fff;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+			}
+
+			.clock-container {
+				text-align: center;
+				padding: 30px;
+				background: #222;
+				border-radius: 10px;
+			}
+
+			#currentTime {
+				font-size: 48px;
+				margin: 20px 0;
+			}
+
+			input[type="time"] {
+				padding: 5px;
+				font-size: 16px;
+			}
+
+			button {
+				padding: 6px 14px;
+				font-size: 16px;
+				margin-left: 10px;
+				cursor: pointer;
+			}
+
+			#status {
+				margin-top: 15px;
+				font-size: 14px;
+				color: #0f0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="clock-container">
+			<h1>Alarm Clock</h1>
+			<div id="currentTime">00:00:00</div>
+
+			<label for="alarmTime">Set Alarm:</label>
+			<input type="time" id="alarmTime" />
+			<button id="setAlarmBtn">Set Alarm</button>
+
+			<div id="status"></div>
+
+			<!-- Hidden audio element -->
+			<audio
+				id="alarmSound"
+				src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg"
+				preload="auto"></audio>
+		</div>
+
+		<script>
+			const currentTimeDisplay = document.getElementById("currentTime");
+			const alarmTimeInput = document.getElementById("alarmTime");
+			const setAlarmBtn = document.getElementById("setAlarmBtn");
+			const status = document.getElementById("status");
+			const alarmSound = document.getElementById("alarmSound");
+
+			let alarmTime = null;
+			let alarmSet = false;
+
+			function updateClock() {
+				const now = new Date();
+				const timeString = now.toLocaleTimeString("en-GB", {
+					hour12: false,
+				});
+				currentTimeDisplay.textContent = timeString;
+
+				if (alarmSet && timeString === alarmTime) {
+					alarmSound.play();
+					alarmSet = false;
+					status.textContent = "Alarm ringing!";
+				}
+			}
+
+			setAlarmBtn.addEventListener("click", () => {
+				if (alarmTimeInput.value) {
+					alarmTime = alarmTimeInput.value + ":00";
+					alarmSet = true;
+					status.textContent = `Alarm set for ${alarmTime}`;
+				}
+			});
+
+			setInterval(updateClock, 1000);
+		</script>
+	</body>
+</html>
