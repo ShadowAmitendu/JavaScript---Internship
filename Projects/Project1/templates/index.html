@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>xPDF Merger</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+			rel="stylesheet" />
+		<style>
+			* {
+				font-family: "Product Sans", sans-serif;
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+			<div class="container-fluid">
+				<a class="navbar-brand fw-bold" href="#">xPDF</a>
+				<div
+					class="collapse navbar-collapse"
+					id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a
+								class="nav-link active"
+								aria-current="page"
+								href="#"
+								>PDF Merger</a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<section
+			class="container text-center position-absolute top-50 start-50 translate-middle">
+			<h1 class="display-1">xPDF Merger</h1>
+			<h1 class="mb-4">For all your merging needs</h1>
+
+			<form action="/merge" method="POST" enctype="multipart/form-data">
+				<div class="input-group mb-3">
+					<label class="input-group-text" for="inputGroupFile"
+						>Upload PDFs</label
+					>
+					<input
+						type="file"
+						name="pdfs"
+						class="form-control"
+						id="inputGroupFile"
+						accept=".pdf"
+						multiple
+						required />
+				</div>
+				<button type="submit" class="btn btn-primary">Merge</button>
+			</form>
+		</section>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+			crossorigin="anonymous"></script>
+	</body>
+</html>
